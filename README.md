@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## API
+Landing page for api, just rendering plain welcome text
 
-Things you may want to cover:
+	get '/',                      :controller => :redirects,      :action => :index
+	
+Route for redirecting to Redirect.url, so api.redirect.nl/1 -> google.nl
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  	get '/:id',                   :controller => :redirects,      :action => :redirect
+	
+Get all Redirect objects with url given through params
+	
+  	post '/url',                  :controller => :redirects,      :action => :url
+	
+Create a new redirect url by giving a url param
+	
+  	post '/redirects',            :controller => :redirects,      :action => :create

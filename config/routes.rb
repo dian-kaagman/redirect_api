@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/',                      :controller => :redirects,      :action => :index
+  get '/:id',                   :controller => :redirects,      :action => :redirect
+  post '/url',                  :controller => :redirects,      :action => :url
+  post '/redirects',            :controller => :redirects,      :action => :create
 end
