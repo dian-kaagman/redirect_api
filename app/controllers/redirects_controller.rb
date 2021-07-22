@@ -17,7 +17,7 @@ class RedirectsController < ApplicationController
     def redirect
         redirect = Redirect.find_by(id: params[:id])
         if !redirect
-            render :json => "Redirect was not found", :status => 404 
+            redirect_to "https://verwijslink.nl/error"
             return
         end
 
