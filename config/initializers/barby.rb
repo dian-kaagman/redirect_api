@@ -1,0 +1,5 @@
+require 'barby'
+require 'barby/barcode/qr_code'
+require 'rqrcode'
+require 'barby/outputter/ascii_outputter'
+require 'barby/outputter/png_outputter'

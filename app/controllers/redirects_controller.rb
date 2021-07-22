@@ -17,7 +17,7 @@ class RedirectsController < ApplicationController
     def redirect
         redirect = Redirect.find_by(id: params[:id])
         if !redirect
-            error_url = "https://verwijslink.nl/error"
+            error_url = "#{request.base_url}/error"
             error_url << "?id=#{params[:id]}" if params[:id]
             redirect_to error_url
             return
@@ -34,7 +34,7 @@ class RedirectsController < ApplicationController
 
         redirect = Redirect.new(url: params[:url])
         if redirect.save!
-            render json: {origin_url: "#{request.base_url}/#{redirect.id}"}, :status => 200 
+            render json: {origin_url: redirect.redirect_url, qr_code: redirect.qr_code}, :status => 200 
         else 
             render json: "Failed", :status => 500
         end
