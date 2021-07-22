@@ -17,7 +17,9 @@ class RedirectsController < ApplicationController
     def redirect
         redirect = Redirect.find_by(id: params[:id])
         if !redirect
-            redirect_to "https://verwijslink.nl/error"
+            error_url = "https://verwijslink.nl/error"
+            error_url << "?id=#{params[:id]}" if params[:id]
+            redirect_to error_url
             return
         end
 
