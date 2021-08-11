@@ -11,7 +11,7 @@ class RedirectsController < ApplicationController
             return
         end
 
-        render json: redirects, :status => 200
+        render json: redirects.to_json(methods: :redirect_url), :status => 200
     end
 
     def redirect
